@@ -7,7 +7,7 @@ function makeListSum(a) { return new Sum([a]); }
 
 describe('Sum', function() {
   describe('Semigroup', function() {
-    it('1. Associativity', function() { laws.semigroup.associativity(makeListSum).asTest()(); });
+    it('1. Associativity', function() { laws.semigroup.associativity(makeSum).asTest()(); });
   });
 
   describe('Monoid', function() {
@@ -26,8 +26,8 @@ describe('Sum', function() {
   describe('concat', function() {
     it('should concat sums containing arrays', function() {
       var sum = makeSum([-1,0,1]);
-      var sum2 = makeSum([-2,0,2]);
-      assert.equal(sum.concat(sum2).inspect(), 'Sum(-1,0,1,-2,0,2)');
+      var sum2 = makeSum([2,3,4]);
+      assert.equal(sum.concat(sum2).inspect(), 'Sum(9)');
     });
 
     it('should add sums containing single values', function() {
@@ -35,28 +35,17 @@ describe('Sum', function() {
       var sum2 = makeSum(-2);
       assert.equal(sum.concat(sum2).inspect(), 'Sum(11)');
     });
-
-    it('should add strings', function() {
-      var sum = makeSum('hello');
-      var sum2 = makeSum('world');
-      assert.equal(sum.concat(sum2).inspect(), 'Sum(helloworld)');
-    });
   });
 
   describe('inspect', function() {
-    it('should show value of string', function() {
-      var sum = makeSum('1');
-      assert.equal(sum.inspect(), 'Sum(1)');
-    });
-
     it('should show value of number', function() {
       var sum = makeSum(1);
       assert.equal(sum.inspect(), 'Sum(1)');
     });
 
-    it('should show value of array', function() {
+    it('should show value of summed array', function() {
       var sum = makeSum([1,2,3]);
-      assert.equal(sum.inspect(), 'Sum(1,2,3)');
+      assert.equal(sum.inspect(), 'Sum(6)');
     });
   });
 
@@ -73,15 +62,15 @@ describe('Sum', function() {
       assert.equal(sum.isEqual(sum2), false);
     });
 
-    it('should be true for equal strings', function() {
-      var sum = makeSum('1');
-      var sum2 = makeSum('1');
-      assert.equal(sum.isEqual(sum2), true);
-    });
-
     it('should be true for equal arrays', function() {
       var sum = makeSum([1,2,3]);
       var sum2 = makeSum([1,2,3]);
+      assert.equal(sum.isEqual(sum2), true);
+    });
+
+    it('should be true for equal array and value', function() {
+      var sum = makeSum([1,2,3]);
+      var sum2 = makeSum(6);
       assert.equal(sum.isEqual(sum2), true);
     });
   });
