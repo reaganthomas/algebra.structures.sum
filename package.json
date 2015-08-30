@@ -21,5 +21,14 @@
   "bugs": {
     "url": "https://github.com/reaganthomas/algebra.structures.sum/issues"
   },
-  "homepage": "https://github.com/reaganthomas/algebra.structures.sum"
+  "homepage": "https://github.com/reaganthomas/algebra.structures.sum",
+  "devDependencies": {
+    "algebra.laws": "^0.1.0",
+    "gulp": "^3.9.0",
+    "gulp-mocha": "^2.1.3"
+  },
+  "dependencies": {
+    "algebra.structures.constructor": "^0.1.0",
+    "deep-equal": "^1.0.1"
+  }
 }
