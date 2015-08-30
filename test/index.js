@@ -7,7 +7,7 @@ function makeListSum(a) { return new Sum([a]); }
 
 describe('Sum', function() {
   describe('Semigroup', function() {
-    it('1. Associativity', function() { laws.semigroup.associativity(makeSum).asTest()(); });
+    it('1. Associativity', function() { laws.semigroup.associativity(makeListSum).asTest()(); });
   });
 
   describe('Monoid', function() {
