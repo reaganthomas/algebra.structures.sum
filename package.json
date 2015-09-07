@@ -1,6 +1,6 @@
 {
   "name": "algebra.structures.sum",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A summing structure conforming to the Monoid specification.",
   "main": "lib/index.js",
   "scripts": {
