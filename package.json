@@ -1,6 +1,6 @@
 {
   "name": "algebra.structures.sum",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A summing structure conforming to the Monoid specification.",
   "main": "lib/index.js",
   "scripts": {
@@ -31,6 +31,7 @@
     "mocha-lcov-reporter": "0.0.2"
   },
   "dependencies": {
-    "algebra.structures.constructor": "^0.1.0"
+    "algebra.structures.constructor": "^0.1.0",
+    "deep-equal": "^1.0.1"
   }
 }
